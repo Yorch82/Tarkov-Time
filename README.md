@@ -1,12 +1,4 @@
----
-title: Tarkov Tme Discord bot
-description: A Discord bot written in Python
-tags:
-  - python
-  - discord.py
----
-
-**Tarkov Time** is a Discord bot aimed at giving the in-game time in Escape From Tarkov in the easiest way
+**Tarkov Time** is a Discord bot aimed at giving the in-game time from Escape From Tarkov
 
 **Click the invite image to add the bot to your server**
 <br />
