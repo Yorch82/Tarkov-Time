@@ -27,11 +27,9 @@ def main():
             json.dump(template, f)
 
     t = requests.session()
-
-    prefix = config_data["prefix"]
-    token = config_data["token"]
+        
     intents = discord.Intents.all()
-    bot = commands.Bot(command_prefix = prefix, intents = intents, description = "Tarkov Time")
+    bot = commands.Bot(command_prefix = '!', intents = intents, description = "Tarkov Time")
     # Comandos
     @bot.command(name="time", description="Tiempo actual Tarkov")
     async def time(ctx):
@@ -40,7 +38,7 @@ def main():
         await ctx.reply(embed = respuesta.enviar)
         
     # Eventos
-    bot.run(token)
+    bot.run(os.environ["DISCORD_TOKEN"])
 
 if __name__ == "__main__":
     main()
