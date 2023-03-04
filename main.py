@@ -1,26 +1,46 @@
-# This example requires the 'message_content' privileged intents
-
-import os
-import discord
+import json, os, discord, requests
 from discord.ext import commands
 
+time_url = "https://tarkov-time.adam.id.au/api?type=plain"
 
-intents = discord.Intents.default()
-intents.message_content = True
-bot = commands.Bot(command_prefix='!', intents=intents)
+class Crear_Respuesta():
+    def __init__(self, title, content):
+        self.title = title
+        self.content = content
 
+        self.respuesta = discord.Embed(
+            title = self.title,
+            description = self.content,
+            colour = int("DC75FF", 16)
+        )
+    @property
+    def enviar(self):
+        return self.respuesta
 
-@bot.event
-async def on_ready():
-    print(f"Logged in as {bot.user}")
+def main():
+    if os.path.exists('config.json'):
+        with open('config.json') as f:
+            config_data = json.load(f)
+    else:
+        template = {'prefix': '!', 'token': ""}
+        with open('config.json', 'w') as f:
+            json.dump(template, f)
 
-@bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
+    t = requests.session()
 
-@bot.command()
-async def hello(ctx):
-    await ctx.send("Choo choo! 🚅")
+    prefix = config_data["prefix"]
+    token = config_data["token"]
+    intents = discord.Intents.all()
+    bot = commands.Bot(command_prefix = prefix, intents = intents, description = "Tarkov Time")
+    # Comandos
+    @bot.command(name="time", description="Tiempo actual Tarkov")
+    async def time(ctx):
+        time = t.get(time_url)
+        respuesta = Crear_Respuesta("El tiempo actual en Tarkov es: ", time.text)
+        await ctx.reply(embed = respuesta.enviar)
+        
+    # Eventos
+    bot.run(token)
 
-
-bot.run(os.environ["DISCORD_TOKEN"])
+if __name__ == "__main__":
+    main()
