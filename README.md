@@ -1,5 +1,9 @@
 **Tarkov Time** is a Discord bot aimed at giving the in-game time from Escape From Tarkov
 
+# Usage
+
+To invoke the bot simply use the command ``!time``
+
 # Adding the Bot
 
 **Click the invite image to add the bot to your server**
