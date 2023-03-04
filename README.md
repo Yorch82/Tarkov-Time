@@ -1,27 +1,7 @@
----
-title: Discord Python bot
-description: A Discord bot written in Python
-tags:
-  - python
-  - discord.py
----
+**Tarkov Time** is a Discord bot aimed at giving the in-game time from Escape From Tarkov
 
-# Discord.py Example
+# Adding the Bot
 
-This example starts a Discord bot using [discord.py](https://discordpy.readthedocs.io/en/stable/).
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/PxM3nl)
-
-## ✨ Features
-
-- Python
-- Discord.py
-
-## 💁‍♀️ How to use
-
-- Install packages using `pip install -r requirements.txt`
-- Start the bot using `python main.py`
-
-## 📝 Notes
-
-This is a basic bot with the prefix `!`, more information can be founded at their [offical documentation](https://discordpy.readthedocs.io/en/stable/api.html).
+**Click the invite image to add the bot to your server**
+<br />
+[<img width="320" height="" align="left" style="float: left; margin: 0 10px 0 0;" alt="Tarkov Time" src="https://raw.githubusercontent.com/Tarkov-Helper/Database/main/images/assets/InviteBanner.png" />](https://discord.com/api/oauth2/authorize?client_id=1080799187458867280&permissions=8&scope=bot%20applications.commands)
